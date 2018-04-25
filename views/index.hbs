@@ -1,0 +1,101 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico"  type="text/css">
+<link rel="stylesheet" href="/stylesheets/be_tap_tinh.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/javascripts/be_tap_tinh.js"></script>
+
+<body onload="load()">
+    <div id="message-box">
+        <div id="message">{{ message }}</div>
+    </div>
+
+    <div class="content-wrap" id="side-front">
+        <div id="content">
+            <div class="info">
+                <div class="btn-wrap" id="btn-wrap-info">
+                    <div class="square-btn circle-btn" id="circle-btn-info" onclick="clickToReverse(x)">&#xf129;</div>
+                </div> 
+            </div>
+
+            <h1>Bé tập tính</h1>
+            
+            <div class="container-fluid">
+                <form action="/" method="post">
+                <div class="row">
+                    <div class="col-sm-4">Số thứ nhất</div>
+                    <div class="col-sm-8">
+                        <input type="text" id="first-num" name="first_num" value="{{ first_num }}" onfocusout="leaveTextField_1(x)" onfocus="enterTextField()">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-8">
+                        <div class="operator-row">
+                            <div class="btn-wrap">
+                                <div style="cursor: pointer" class="square-btn" id="add-btn" onclick="clickAdd()">
+                                    <input style="visibility:hidden" id="operator" name="operator" value="{{ operator }}">
+                                </div>
+                            </div>
+                            <div class="btn-wrap">
+                                <div style="cursor: pointer" class="square-btn" id="minus-btn" onclick="clickMinus()"></div>
+                            </div>                    
+                            <div class="btn-wrap">
+                                <div style="cursor: pointer" class="square-btn" id="mul-btn" onclick="clickMul()"></div>
+                            </div>
+                            <div class="btn-wrap">
+                                <div style="cursor: pointer" class="square-btn" id="div-btn" onclick="clickDiv()"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">Số thứ hai</div>
+                    <div class="col-sm-8">
+                        <input type="text" id="second-num" name="second_num" value="{{ second_num }}" onfocusout="leaveTextField_2(x)" onfocus="enterTextField()">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-8">
+                        <div class="operator-row">
+                            <div class="btn-wrap">
+                                <button type="submit" class="square-btn" id="equals-btn" onclick="clickEquals(x)"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">Kết quả</div>
+                    <div class="col-sm-8">
+                        <input id="result-num" value="{{ result_num }}" readonly>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-wrap" id="side-back">
+        <div id="side-back-content">
+            <div class="info">
+                <div class="btn-wrap" id="btn-wrap-close">
+                    <div class="square-btn circle-btn" id="circle-btn-close" onclick="clickToComeback()">&#xf00d;</div>       
+                </div> 
+            </div>
+        
+            <div class="reverse">
+                <p id="reverse-header">Thông tin</p>
+                <p class="sen"><span style="color:purple">Bé tập tính</span> cho phép bạn nhập:</p>
+                <p class="sen" style="padding-left: 60px"><span style="color:brown">Số thập phân</span> với dạng: <span style="color:brown">3.14</span></p>
+                <p class="sen" style="padding-left: 60px"><span style="color:brown">Phân số</span> với dạng: <span style="color:brown">3/14</span></p>
+                <p class="sen"><span style="color:purple">Bé tập tính</span> không hiển thị kết quả dưới dạng phân số.</p>
+            </div>
+        </div>
+    </div>
+</body>
